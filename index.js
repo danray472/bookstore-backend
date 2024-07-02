@@ -14,16 +14,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Middleware for handling CORS POLICY
-app.use(cors());
+// Middleware for handling CORS POLICY
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL, // Update this to your frontend's domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
+  })
+);
 
-// Option 2: Allow Custom Origins (if needed)
-// app.use(
-//   cors({
-//     origin: 'http://your-frontend-domain.com', // Update this to your frontend's domain
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type'],
-//   })
-// );
 
 
 
